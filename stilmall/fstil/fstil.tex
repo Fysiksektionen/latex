@@ -1,0 +1,156 @@
+% !TEX TS-program = XeLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Instruktion till paketet fstil.sty, fysiksektionens grafiska profil!
+% Dokument skapat av Emil Ringh, F-08 (eringh)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{article}
+%Fysiksketionens grafiska profil
+\usepackage{fstil}
+%För att kunna använda bilder
+\usepackage{graphicx}
+%Svenska avstavning
+\usepackage[swedish]{babel}
+%För att inkludera kod
+\usepackage{listings}
+\lstset{
+breaklines=true,
+language=TeX,
+basicstyle=\footnotesize
+}
+
+
+\newcommand{\bs}{\textbackslash}
+
+\title{Introduktion till paketet  \NoCaseChange{\texttt{fstil.sty}} }
+\date{September 2012}
+\author{}
+
+
+\begin{document}
+\fintro{Paketet \texttt{fstil.sty} är en \TeX-klass som har utvecklats för att ge \F ysiksektionen en enhetlig grafisk profil att använda i alla officiella dokument. Detta är en introduktion till hur detta paket fungerar och hur det används.}
+\ftitlepage
+\ftoc
+\section{Paketet fstil}
+Paketet \texttt{fstil.sty} är utvecklat för att ge \F ysiksektionen en grafisk profil. Det ställer om fonten till \textit{Garamond}, ger ett sidhuvud som innehåller sektionens logotyp samt en sektionsrelaterad sidfot. Den grafisk profilen är sådan att den efterliknar THS grafiska profil, fast anpassad till \F ysiksektionen. Detta dokument är skrivet med hjälp av fstil.
+
+\subsection{Installera fstil}
+Börja med att installera de medföljande typsnitten på din dator:
+\begin{itemize}
+\item[] Windows: Öppna kontrollpanelen, gå till \textit{Teckensnitt} och dra in de medföljande .TTF-erna.
+\item[] Ubuntu:
+\end{itemize}
+
+Sen kan man om man vill installera paketet (rekommenderas om du ska använda det mer än en gång):
+\begin{itemize}
+\item[] MikTeX: Följ länkarna för \href{http://docs.miktex.org/faq/maintenance.html#styfiles}{kortare} och \href{http://docs.miktex.org/manual/localadditions.html}{längre} instruktioner.
+\end{itemize}
+
+\subsection{Att använda fstil}
+Börja med att installera fstil, om du inte vill installera själva paketet på din dator kan man alltid flytta med filen \texttt{fstil.sty} samt de medföljande bilderna till den manp man har dokumentet man önskar kompilera.
+
+För att använda fstil skriver du helt enkelt \texttt{\bs usepackage\{fstil\}} i början av ditt \TeX-dokument.
+
+För att kompilera dokumentet använder du \textit{XeLaTeX}. Detta kan du göra genom att skriva \\ \texttt{>xelatex MITTDOKUMENT.tex} i terminalen (\textit{XeLaTeX} följer med de flesta \TeX-distributioner).
+
+\subsection{Tänk på att}
+Varje dokument behöver en titel, denna sätts med \texttt{\bs title\{TEXT\}} och syns i sidhuvudet. Dessutom förses varje dokument med ett datum, också det i sidhuvudet. Datumet är per automatik den dag du kompilerar dokumentet om du inte sätter det själv med kommandot \texttt{\bs date\{TEXT\}}
+
+Du får \textbf{\underline{inte}} använda \texttt{\bs usepackage[T1]\{fontenc\}}, då kommer typsnittet att bli fel.
+
+Använd inte fler paket än nödvändigt (fstil har det mesta inbyggt). Ska du använda fler paket, se till att ladda fstil först!
+
+fstil är inställt för att jobba med dokument encodade med \textit{utf8}. Se till så att ditt dokumnet är skrivet i \textit{utf8}, annars fungerar inte å,ä,ö.
+
+\section{Användbara kommandon}
+
+\subsection{Allmänna kommandon}
+\begin{itemize}
+\item \texttt{\bs NoCaseChange\{TEXT som inte ska bli Caps i titeln\} }
+\item \texttt{\bs href\{http://www.f.kth.se\}\{länkt till Fysiksektionens hemsida\} } ger mycket riktigt en  \href{http://www.f.kth.se}{länk till Fysiksektionens hemsida}. Observera färgen!
+\end{itemize}
+
+\subsection{Speciellt för fstil}
+\begin{itemize}
+\item \texttt{\bs ftitlepage} skapar en första sida. Den ser lika dan ut som till detta dokument och innehållet titeln samt en text som definieras av kommandot nedan.
+\item \texttt{\bs fintro\{TEXT\}} definierar det som ska stå på förstasidan. Tänk på att inte göra denna text för lång.
+\item \texttt{\bs ftoc} ger en innehållsförteckning (på egen sida).
+\item \texttt{\bs F} producerar ett \F.
+\item \texttt{\bs noll} skriver ut \noll. Perfekt om man vill skriva \noll an eller \noll egasque.
+\item \texttt{\bs fkm} ger klubbmästeriets logga \fkm.
+\item Definierar färgen \texttt{fysik} vilket get \textcolor{fysik}{en fin orange färg} som kan användas. Till exempel i kommandot \texttt{\bs textcolor\{fysik\}\{en fin orange färg\}}.
+\end{itemize}
+
+\section{Options i fstil}
+Ett paket kan laddas med olika options, vilket görs när du deklarerar att du vill använda paketet:\\ \texttt{$\bs$usepackage[ettOption,ettAnnatOption]\{fstil\}}. De options som fstil kan hantera är:
+\begin{itemize}
+\item \texttt{landscape} sätter om marginalerna och fixar titelsidan så att det blir snyggt på ett liggande dokument. \textbf{OBS:} Behöver inte laddas explicit, görs automatiskt om kommandot ges när du laddar dokumentklassen \texttt{$\bs$documentclass[a4paper,landscape]\{article\}}. Kan dock göras manuelt om man vill
+\item \texttt{DateOnTitle} ser till att datumet läggs till på framsidan. Datumet får en egen rad och allt blir högerjusterat. Blir snyggast ihop med långa titlar som \textit{Verksamhetsberättelse Fysiksektionen} eller \textit{Halvårsrapport Fysiksektionen}.
+\end{itemize}
+
+\section{Ett exempel}
+Detta är ett enkelt exemple på hur man använder paketet.
+
+\begin{lstlisting}
+\documentclass[a4paper]{article}
+%Fysiksketionens grafiska profil
+\usepackage{fstil}
+%Svenska avstavning
+\usepackage[swedish]{babel}
+
+\title{Ett exempel}
+\date{Dagens datum!}
+\author{Emil Ringh}
+\fintro{Detta är en introduktionstext. Den kan vara ett par rader lång...}
+
+\begin{document}
+\ftitlepage
+\ftoc
+
+\section{Detta är första rubriken}
+\F ysiker vet att \noll\ gånger \noll\ är \noll.
+\subsection{Denna syns inte i Innehållsförteckningen}
+Här kan man skriva mer.
+
+\section{Del två av detta exempel}
+\F ysiksektionen använder ibland {\Huge \textcolor{fysik}{\F}} som symbol även om Kugghjulet är den officiella symbolen.
+\end{document}
+\end{lstlisting}
+
+
+\section{Versionshistorik - \texttt{fstil.sty}}
+\begin{itemize}
+\item November 2011. Färdigställt. Skrivet av: Tomas Lycken (\F-08) och Emil Ringh (\F-08)
+\item Januari 2012. Introducerat options-handeling i paketet. Kan nu även hantera option \texttt{landscape} till dokumentklassen genom att anpassa marginaler och titelsidan så att det blir snyggt. Skrivet av: Emil Ringh (\F-08)
+\item September 2012. Option \texttt{DateOnTitle} tillagt. Fixat en bugg med att \fkm inte kunde skrivas i Sections. Skrivet av: Emil Ringh (\F-08)
+\end{itemize}
+
+%\section{Paket som används av fstil}
+%Dessa paket laddas, med angivna inställningar, av fstil:
+%\begin{itemize}
+%\item \{array\}: Mer options för arrays och alignment
+%\item \{amsfonts\}: innehåller bl.a. mathfrak, som krävs för att skriva ett \F
+%\item \{caption\}: Ger kontroll av figure-captions
+%\item\ [usenames,dvipsnames]\{color\}: Tillåter definition av färger och användning av standard färger genom namnangivelser
+%\item \{enumitem\}
+%\item \{fancyhdr\}: ger kontroll på sidhuvud och sidfot
+%\item \{fontspec\}: Intsällningar för typsnitt
+%\item \{geometry\}: Anpassa sidmarginalerna för att använda ett helt A4
+%\item \{graphicx\}: hanterar bilder
+%\item\ [xetex,bookmarks=true,colorlinks=true,linkcolor=headernfooter,urlcolor=headernfooter,linktoc=section,]\{hyperref\}: Skapar bokmärken i pdf-filer, gör hänvisningar till länkar, mm
+%\item \{lastpage\}: för att kunna referera till sista sidan
+%\item \{multirow\} och \{multicol\}: Tabellceller som spänner över flera rader/kolumner
+%\item\ [parfill]\{parskipp\}: Låt styckesbrytning markeras med blankrad istället för indrag
+%\item \{tabularx\}: Definierar ett environment, tabularx, som är en modifierad version av tabular
+%\item \{textcase\}: För att kunna göra UPPERCASE.
+%\item \{titletoc\} och \{titlesec\}: Intällningar på tielsida och tableofcontents samt numrering av sections
+%\end{itemize}
+
+
+
+\clearpage
+\section{\texttt{fstil.sty}}
+\lstinputlisting{fstil.sty}
+
+
+\end{document}

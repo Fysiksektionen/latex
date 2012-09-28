@@ -1,0 +1,73 @@
+% Paket för att underlätta skapandet av biljetter till Fysikalens föreställningar
+\ProvidesPackage{fspexbiljettutils}
+
+% Alla dessa paket behövs för att skapa "vattenmärkningen", d.v.s. bilden bakom
+% biljetten
+\RequirePackage{graphics}
+\RequirePackage{eso-pic}
+\RequirePackage{ifthen}
+
+% Sätt paperwidth och paperheigth till lagom stora. 
+% Marginalerna bör vara 0in, annars centreras inte bilden.
+\RequirePackage[paperwidth=3.14in, paperheight=2.92in, margin=0in]{geometry}
+
+% Idiom:
+% \newcommand\fspex@namn{} skapar ett (tomt) kommando som kan användas på olika ställen i paketet
+% \newcommand\namn[1]{\renewcommand\fspex@namn{#1}} skapar ett kommando för att fylla \fspex@namn med innehåll
+
+% I dokumentet som ska kompileras används sedan \namn{Mitt namn} på samma sätt som \title{} och \author{} i vanliga
+% rapporter. Argumentet används på alla ställen där något kommando vill skriva ut namnet (analogt med hur t.ex. 
+% kommandot \maketitle fungerar)
+
+% Detta idiom används flitigt.
+
+
+\makeatletter % Gör @ tillgänglig för kommandonamn
+
+% För följande kommandon, se kommentarerna om idiomet ovan
+\newcommand\fspex@spex{Spexets Titel}
+\newcommand\spex[1]{\renewcommand\fspex@spex{#1}}
+
+\newcommand\fspex@ellertitel{Föreställningens alternativa namn}
+\newcommand\ellertitel[1]{\renewcommand\fspex@ellertitel{#1}}
+
+\newcommand\fspex@teater{Teatern}
+\newcommand\teater[1]{\renewcommand\fspex@teater{#1}}
+
+\newcommand\fspex@datum{En dag}
+\newcommand\datum[1]{\renewcommand\fspex@datum{#1}}
+
+\newcommand\fspex@tid{någon tid}
+\newcommand\tid[1]{\renewcommand\fspex@tid{#1}}
+
+\newcommand\fspex@bgimg{}
+\newcommand\bgimg[1]{%
+\renewcommand\fspex@bgimg{#1}
+\ClearShipoutPictureBG
+\AddToShipoutPictureBG{{\includegraphics[width=\paperwidth,keepaspectratio]{\fspex@bgimg}}}
+}
+
+% Själva biljetten. Detta kommando tar tre argument: sektion, bänk och plats.
+% Anropen byggs vanligen upp av skapabiljetter.py, och bör se ut som t.ex.
+% \biljett{Parkett}{4 \hoger}{43}
+\newcommand\biljett[3]{
+\phantom{0}%
+\begin{center}%
+{\Huge \bfseries BILJETT}\\%
+\vspace{5pt}%
+{\tiny Denna biljett ber\"attigar intr\"ade f\"or en (1) person till spexet}\\%
+\vspace{10pt}%
+{\Huge \bfseries \fspex@spex}\\%
+\vspace{5pt}%
+-- eller --\\%
+\vspace{5pt}%
+{\large \itshape \fspex@ellertitel}\\%
+\vspace{10pt}
+som visas p\aa\ \fspex@teater\\%
+\fspex@datum\ \fspex@tid\\%
+\vspace{10pt}%
+{#1 B\"ank {\Huge #2}, \large plats {\Huge #3}}%
+\end{center}%
+}
+
+\makeatother % Återställer @

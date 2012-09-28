@@ -1,0 +1,40 @@
+%!TEX TS-program = XeLaTeX
+\documentclass{article}
+
+% Paket med alla kommandon som behövs
+\usepackage{fspexbiljettutils}
+
+% Sätt paperwidth och paperheigth till exakt samma dimensioner som bakgrundsbildens
+% (annars blir den inte centrerad på biljetten). Marginalerna bör vara 0in.
+\RequirePackage[paperwidth=3.14in, paperheight=2.92in, margin=0in]{geometry}
+
+% Dessa två rader kan ändras at will för att byta font
+% Om de är med måste man kompilera med XeLaTeX (xelatex biljetter.tex ist.f. pdflatex biljetter.tex)
+% De kan också kommenteras bort för att använda standardtypsnittet.
+\usepackage{fontspec}
+\setmainfont{Garamond-Normal}
+
+% Ställ in saker som är gemensamma för alla biljetter här
+% Tänk på att använda \aa, \"a och \"o för å, ä respektive ö.
+% Även t.ex. \'e är bra att ha koll på.
+\spex{Alfred Nobel}
+\ellertitel{En dynamitgubbe v\"ard sitt pris}
+\teater{Dieselverkstaden}
+\datum{den 9 maj}
+\tid{kl 19.00}
+
+% Denna bild används som bakgrundsbild på biljetten. Inga förändringar av bilden görs av
+% TeX, utan bilden bör redan vara omgjord till gråskala och halvgenomskinlig
+\bgimg{nobel-logo-bw}
+
+% Kommandon för 
+\newcommand\vanster{V\"anster}
+\newcommand\hoger{H\"oger}
+
+\begin{document}
+
+% Denna rad byts ut av pythonscriptet mot ett anrop till \biljett{<sektion>}{<bänk>}{<plats>} 
+% för varje stol i listan över teaterns sittplatser
+\biljetter
+
+\end{document}
