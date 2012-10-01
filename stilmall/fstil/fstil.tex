@@ -14,6 +14,7 @@
 %För att inkludera kod
 \usepackage{listings}
 \lstset{
+tabsize=1,
 breaklines=true,
 language=TeX,
 basicstyle=\footnotesize
@@ -41,14 +42,12 @@ Börja med att installera de medföljande typsnitten på din dator:
 \item[] Ubuntu:
 \end{itemize}
 
-Sen kan man om man vill installera paketet (rekommenderas om du ska använda det mer än en gång):
+Orkar man inte installera paketet räcker det nu med att flytta med filen \texttt{fstil.sty} samt de medföljande bilderna till den map man har dokumentet man önskar kompilera. Om du ska använda det mer än en gång rekommenderas dock att du installerar det:
 \begin{itemize}
 \item[] MikTeX: Följ länkarna för \href{http://docs.miktex.org/faq/maintenance.html#styfiles}{kortare} och \href{http://docs.miktex.org/manual/localadditions.html}{längre} instruktioner.
 \end{itemize}
 
 \subsection{Att använda fstil}
-Börja med att installera fstil, om du inte vill installera själva paketet på din dator kan man alltid flytta med filen \texttt{fstil.sty} samt de medföljande bilderna till den manp man har dokumentet man önskar kompilera.
-
 För att använda fstil skriver du helt enkelt \texttt{\bs usepackage\{fstil\}} i början av ditt \TeX-dokument.
 
 För att kompilera dokumentet använder du \textit{XeLaTeX}. Detta kan du göra genom att skriva \\ \texttt{>xelatex MITTDOKUMENT.tex} i terminalen (\textit{XeLaTeX} följer med de flesta \TeX-distributioner).
@@ -78,7 +77,13 @@ fstil är inställt för att jobba med dokument encodade med \textit{utf8}. Se t
 \item \texttt{\bs F} producerar ett \F.
 \item \texttt{\bs noll} skriver ut \noll. Perfekt om man vill skriva \noll an eller \noll egasque.
 \item \texttt{\bs fkm} ger klubbmästeriets logga \fkm.
+\item \texttt{\bs fn} ger näringslivsnämndens logga \fn.
 \item Definierar färgen \texttt{fysik} vilket get \textcolor{fysik}{en fin orange färg} som kan användas. Till exempel i kommandot \texttt{\bs textcolor\{fysik\}\{en fin orange färg\}}.
+\item \texttt{\bs twosign\{plats\}\{år\}\{namn1\}\{namn2\}\{titel1\}\{titel2\}} ger en underskrift från två personer (som den brukar se ut på protokol från SM). {\tiny
+\twosign{plats}{år}{namn1}{namn2}{titel1}{titel2}
+}
+\item \texttt{\bs threesign\{plats\}\{år\}\{namn1\}\{namn2\}\{namn3\}\{titel1\}\{titel2\}\{titel3\}} ger en underskrift från tre personer (som den brukar se ut på protokoll från STYM).
+\item \texttt{\bs foursign\{år\}\{namn1\}\{namn2\}\{namn3\}\{namn4\}\{titel1\}\{titel2\}\{titel3\}\{titel4\}} ger en underskrift från fyra personer (som den brukar se ut på tex verksamhetberättelser). (Stockholm är angivet som plats på grund av begränsingar i \TeX).
 \end{itemize}
 
 \section{Options i fstil}
@@ -117,40 +122,16 @@ Här kan man skriva mer.
 \end{document}
 \end{lstlisting}
 
-
 \section{Versionshistorik - \texttt{fstil.sty}}
 \begin{itemize}
 \item November 2011. Färdigställt. Skrivet av: Tomas Lycken (\F-08) och Emil Ringh (\F-08)
 \item Januari 2012. Introducerat options-handeling i paketet. Kan nu även hantera option \texttt{landscape} till dokumentklassen genom att anpassa marginaler och titelsidan så att det blir snyggt. Skrivet av: Emil Ringh (\F-08)
-\item September 2012. Option \texttt{DateOnTitle} tillagt. Fixat en bugg med att \fkm inte kunde skrivas i Sections. Skrivet av: Emil Ringh (\F-08)
+\item September 2012. Option \texttt{DateOnTitle} tillagt. Fixat en bugg med att \texttt{\bs fkm} inte kunde skrivas i Sections. Skrivet av: Emil Ringh (\F-08)
+\item Oktober 2012. La till kommandona \texttt{\bs fn}, \texttt{\bs twosign}, \texttt{\bs threesign}, \texttt{\bs foursign}. Skrivet av: Emil Ringh (\F-08)
 \end{itemize}
-
-%\section{Paket som används av fstil}
-%Dessa paket laddas, med angivna inställningar, av fstil:
-%\begin{itemize}
-%\item \{array\}: Mer options för arrays och alignment
-%\item \{amsfonts\}: innehåller bl.a. mathfrak, som krävs för att skriva ett \F
-%\item \{caption\}: Ger kontroll av figure-captions
-%\item\ [usenames,dvipsnames]\{color\}: Tillåter definition av färger och användning av standard färger genom namnangivelser
-%\item \{enumitem\}
-%\item \{fancyhdr\}: ger kontroll på sidhuvud och sidfot
-%\item \{fontspec\}: Intsällningar för typsnitt
-%\item \{geometry\}: Anpassa sidmarginalerna för att använda ett helt A4
-%\item \{graphicx\}: hanterar bilder
-%\item\ [xetex,bookmarks=true,colorlinks=true,linkcolor=headernfooter,urlcolor=headernfooter,linktoc=section,]\{hyperref\}: Skapar bokmärken i pdf-filer, gör hänvisningar till länkar, mm
-%\item \{lastpage\}: för att kunna referera till sista sidan
-%\item \{multirow\} och \{multicol\}: Tabellceller som spänner över flera rader/kolumner
-%\item\ [parfill]\{parskipp\}: Låt styckesbrytning markeras med blankrad istället för indrag
-%\item \{tabularx\}: Definierar ett environment, tabularx, som är en modifierad version av tabular
-%\item \{textcase\}: För att kunna göra UPPERCASE.
-%\item \{titletoc\} och \{titlesec\}: Intällningar på tielsida och tableofcontents samt numrering av sections
-%\end{itemize}
-
-
 
 \clearpage
 \section{\texttt{fstil.sty}}
 \lstinputlisting{fstil.sty}
-
 
 \end{document}
