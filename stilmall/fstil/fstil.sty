@@ -252,6 +252,21 @@
 %		UNDERSKRIFTER		         %
 %==========================%
 %Kommandon för att generera snygga underskrifter
+%\sign{plats}{år}{namn}{titel}
+\newcommand{\sign}[4]{
+\begin{center}
+\begin{tabular}{>{\centering}p{5cm}}
+#1  \tabularnewline
+den \hspace{.5cm}/\hspace{.5cm} #2  \tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+#3 \tabularnewline
+#4
+\end{tabular}
+\end{center}}
+
 %\twosign{plats}{år}{namn1}{namn2}{titel1}{titel2}
 \newcommand{\twosign}[6]{
 \begin{center}
