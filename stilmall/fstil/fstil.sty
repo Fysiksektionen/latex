@@ -66,6 +66,8 @@
 \RequirePackage{lastpage}
 %ifthen: för logisk programering med booleans
 \RequirePackage{ifthen}
+%calc: För att räkna! Typ \withof
+\RequirePackage{calc}
 
 % ======================== %
 % 	   INTRODUCERA VARIABLER            %
@@ -248,9 +250,20 @@
 %Definierar \FN => fn-logga
 \newcommand\FN{\ensuremath{\F_{\!_{{N}}}}}
 
+%Definierar \carlsven => Calle Svensson i överstruken text.
+\newcommand{\carlsven}{\strike{Calle Svensson}}
+
+
 %==========================%
+%      ANDRA ANVÄNDBARA KOMMANDON     %
+%==========================%
+%Definierar \strike{text} => texten i överstruken font
+\newlength{\strilen}
+\newcommand{\strike}[1]{\setlength{\strilen}{\widthof{#1}}
+\mbox{\raisebox{0.5ex}{\protect\rule{\strilen}{0.2ex}}\protect\hspace{-\strilen}#1\ }}
+
+
 %		UNDERSKRIFTER		         %
-%==========================%
 %Kommandon för att generera snygga underskrifter
 %\sign{plats}{år}{namn}{titel}
 \newcommand{\sign}[4]{
