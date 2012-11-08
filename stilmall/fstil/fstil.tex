@@ -66,7 +66,7 @@ fstil är inställt för att jobba med dokument encodade med \textit{utf8}. Se t
 \subsection{Allmänna kommandon}
 \begin{itemize}
 \item \texttt{\bs NoCaseChange\{TEXT som inte ska bli Caps i titeln\} }
-\item \texttt{\bs href\{http://www.f.kth.se\}\{länkt till Fysiksektionens hemsida\} } ger mycket riktigt en  \href{http://www.f.kth.se}{länk till Fysiksektionens hemsida}. Observera färgen!
+\item \texttt{\bs href\{http://www.f.kth.se\}\{länk till Fysiksektionens hemsida\} } ger mycket riktigt en  \href{http://www.f.kth.se}{länk till Fysiksektionens hemsida}. Observera färgen!
 \end{itemize}
 
 \subsection{Speciellt för fstil}
@@ -79,12 +79,14 @@ fstil är inställt för att jobba med dokument encodade med \textit{utf8}. Se t
 \item \texttt{\bs fkm} ger klubbmästeriets logga \fkm.
 \item \texttt{\bs FN} ger näringslivsnämndens logga \FN.
 \item Definierar färgen \texttt{fysik} vilket get \textcolor{fysik}{en fin orange färg} som kan användas. Till exempel i kommandot \texttt{\bs textcolor\{fysik\}\{en fin orange färg\}}.
+\item \texttt{\bs carlsven} ger det fanatiska namnet \carlsven, om man behöver det till en anmälningslista.
+\item \texttt{\bs strike\{text\}} kan användas om man vill ha ett streck genom någon annan \strike{text}.
 \item \texttt{\bs sign\{plats\}\{år\}\{namn\}\{titel\}} ger en underskrift frånen person (som den brukar se ut på motioner, fast med datum och plats).
 \item \texttt{\bs twosign\{plats\}\{år\}\{namn1\}\{namn2\}\{titel1\}\{titel2\}} ger en underskrift från två personer (som den brukar se ut på protokol från SM). Ett förminskat exempel: {\footnotesize
 \twosign{plats}{år}{namn1}{namn2}{titel1}{titel2}
 }
 \item \texttt{\bs threesign\{plats\}\{år\}\{namn1\}\{namn2\}\{namn3\}\{titel1\}\{titel2\}\{titel3\}} ger en underskrift från tre personer (som den brukar se ut på protokoll från STYM).
-\item \texttt{\bs foursign\{år\}\{namn1\}\{namn2\}\{namn3\}\{namn4\}\{titel1\}\{titel2\}\{titel3\}\{titel4\}} ger en underskrift från fyra personer (som den brukar se ut på tex verksamhetberättelser). (Stockholm är angivet som plats på grund av begränsingar i \TeX).
+\item \texttt{\bs foursign\{år\}\{namn1\}\{namn2\}\{namn3\}\{namn4\}\{titel1\}\{titel2\}\{titel3\}\{titel4\}} ger en underskrift från fyra personer (som den brukar se ut på tex verksamhetsberättelser). (Stockholm är angivet som plats på grund av begränsingar i \TeX).
 \end{itemize}
 
 \section{Options i fstil}
@@ -129,6 +131,7 @@ Här kan man skriva mer.
 \item Januari 2012. Introducerat options-handeling i paketet. Kan nu även hantera option \texttt{landscape} till dokumentklassen genom att anpassa marginaler och titelsidan så att det blir snyggt. Skrivet av: Emil Ringh (\F-08)
 \item September 2012. Option \texttt{DateOnTitle} tillagt. Fixat en bugg med att \texttt{\bs fkm} inte kunde skrivas i Sections. Skrivet av: Emil Ringh (\F-08)
 \item Oktober 2012. La till kommandona \texttt{\bs fn}, \texttt{\bs twosign}, \texttt{\bs threesign}, \texttt{\bs foursign}. Skrivet av: Emil Ringh (\F-08)
+\item Oktober 2012. La till kommandot \texttt{\bs strike} samt den studentikosa tillämpningen \texttt{\bs carlsven}. Skrivet av: Emil Ringh, (\F-08)
 \end{itemize}
 
 \clearpage
