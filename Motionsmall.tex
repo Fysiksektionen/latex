@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                                %%
+%%    Fysiksektionens mall för motioner.                                          %%
+%%                                                                                %%
+%%    Skriven av Thomas Lycken (F08) 2011                                         %%
+%%    Senast ändrad 2010-02-18 av Thomas Lycken (F-08) tlycken@f.kth.se           %%
+%%    Senast ändrad 2011-08-23 av Thomas Lycken (F-08) tlycken@f.kth.se           %%
+%%    Senast ändrad 2011-08-24 av Emil Ringh (F-08) eringh@f.kth.se               %%
+%%    Senast ändrad 2017-03-06 av Johan Engvall (F-07) jengvall@f.kth.se          %%
+%%    Anpassad till fstildok 2018-06-17 av Gustav Gybäck (F15) gyback@kth.se      %%
+%%                                                                                %%
+%%    Fyll i kommandona nedan för att få en motion                                %%
+%%    enligt sektionens grafiska profil.                                          %%
+%%                                                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TEX TS-program = XeLaTeX
+% !TEX encoding = utf8
+\documentclass{fstildok}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Ändra följande parametrar, så sköter sig resten själv.    %%					
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Motion eller Proposition
+\typ{Motion}
+
+% Vilket SM det är
+\smnr{2}
+
+% Vilket datum SM äger rum
+\smdate{2017-03-06}
+
+% Om det är genom en grupp eller nämn fylls det i här. Lämna tom om det inte är det.
+\group{\fkm}
+
+% Namn på den eller de som framför motionen
+\name{Åsa \\  \F-89 \\ ruckilina@f.kth.se \and A. Nonym \\  F-32 \F örst \\ minmail@kth.se}
+
+% Rubriken till dokumentet. Det kommer stå med i handlingarna.		
+\rubrik{En \LaTeX mall för motioner}
+
+% Bakgrunden till motionen. Det kommer som läpande text ovanför ens yrkande.
+\bakgrund{					
+Fysiksektionen har nu en mall för att skriva snygga motioner. Man kan skriva saker som \F\ är fint, \fkm\ har kul eller $2+2\neq \infty$. Även \noll an kan man skriva om.
+}
+
+% Fyll med en attsats för varje förändring du vill införa.
+% Du kan här referera till andra attsatser genom \att{nr} som nedan.
+\attsatser{ 
+\attsats mallen är bra att använda
+\attsats bifalla \att{1}
+}
+
+%-----------------------------------------------------------------%
+
+\motion
